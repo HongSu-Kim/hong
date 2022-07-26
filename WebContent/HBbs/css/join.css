@@ -1,0 +1,47 @@
+@charset "UTF-8";
+
+.box.row {
+	display: inline-block;
+	width: 450px; height : 50px;
+	background-color: #EEEEEE;
+	border: 1px solid #DBDBDB;
+	height: 50px;
+}
+
+.box.label {
+	width: 80px;
+}
+
+label span {
+	font-size: 20px;
+	font-weight: 550;
+	float: right;
+}
+
+.box.input {
+	width: 300px;
+	background-color: #FFFFFF;
+	border-radius: 6px;
+}
+
+input {
+	display: inline-block;
+	width: 300px;
+	font-size: 15px;
+	border: none;
+	float: left;
+	outline: none;
+}
+
+input.input-3 {
+	width: 90px;
+	vertical-align: middle;
+}
+
+.input-3.center {
+	float: inherit;
+}
+
+.input-3.right {
+	float: right;
+}
