@@ -8,22 +8,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/join.css">
+<link rel="stylesheet" href="/hong/HBbs/css/style.css">
+<link rel="stylesheet" href="/hong/HBbs/css/join.css">
 
 <title>로그인</title>
 </head>
 <body>
-	<jsp:include page="header.jsp"/>
+	<jsp:include page="../main/header.jsp"/>
 	<div id="section" align="center">
 	
 		<div id="container" align="center">
 		
-			<jsp:include page="nav-left.jsp"/>
+			<jsp:include page="../main/nav-left.jsp"/>
 			
 			<div id="content" >
 				<h3 id="container-header">로그인</h3>
-				<form action="login_ok.jsp" method="post" name="loginForm">
+				<form action="login_ok.do" method="post" name="loginForm">
 					<div class="box row">
 						<div class="box label">
 							<label for="userId"><span>아이디</span></label>
@@ -47,6 +47,6 @@
 			</div>
 		</div>
 	</div>
-	<jsp:include page="footer.jsp"/>
+	<jsp:include page="../main/footer.jsp"/>
 </body>
 </html>

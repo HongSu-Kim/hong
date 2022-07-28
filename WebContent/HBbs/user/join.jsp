@@ -3,14 +3,14 @@
 	request.setCharacterEncoding("UTF-8");
 	String cp = request.getContextPath();
 %>
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>회원가입</title>
 
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/join.css">
+<link rel="stylesheet" href="<%=cp %>/HBbs/css/style.css">
+<link rel="stylesheet" href="<%=cp %>/HBbs/css/join.css">
 
 <script type="text/javascript">
 	function join() {
@@ -19,7 +19,7 @@
 		
 		f.userBirth.value = f.userYear.value + f.userMonth.value +  f.userDay.value; 
 	
-		f.action = "join_ok.jsp";
+		f.action = "join_ok.do";
 		f.submit();
 
 	}
@@ -27,11 +27,11 @@
 
 </head>
 <body>
-	<jsp:include page="header.jsp"/>
+	<jsp:include page="../main/header.jsp"/>
 	<div id="section" align="center">
 		<div id="container" align="center">
 		
-			<jsp:include page="nav-left.jsp"/>
+			<jsp:include page="../main/nav-left.jsp"/>
 			
 			<div id="content" >
 				<h3 id="container-header">회원가입</h3>
@@ -103,6 +103,6 @@
 			</div>
 		</div>
 	</div>
-	<jsp:include page="footer.jsp"/>
+	<jsp:include page="../main/footer.jsp"/>
 </body>
 </html>

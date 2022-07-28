@@ -58,7 +58,7 @@ public class HBbsDAO {
 			sql += "VALUES(?, ?, ?, ?, ?, SYSDATE, NULL, 0)";
 
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, dto.getBbsId());
+			pstmt.setInt(1, getMaxNum() + 1);
 			pstmt.setString(2, dto.getBbsCategory());
 			pstmt.setString(3, dto.getUserId());
 			pstmt.setString(4, dto.getBbsTitle());
@@ -84,15 +84,14 @@ public class HBbsDAO {
 
 		try {
 
-			sql = "UPDATE HBBS SET BBSCATEGORY = ?, BBSTITLE = ?, BBSCONTENT = ?, CREATEDDATE = ?, UPDATEDDATE = SYSDATE ";
+			sql = "UPDATE HBBS SET BBSCATEGORY = ?, BBSTITLE = ?, BBSCONTENT = ?, UPDATEDDATE = SYSDATE ";
 			sql += "WHERE BBSID = ?";
 
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, dto.getBbsCategory());
 			pstmt.setString(2, dto.getBbsTitle());
 			pstmt.setString(3, dto.getBbsContent());
-			pstmt.setString(4, dto.getCreatedDate());
-			pstmt.setInt(5, dto.getBbsId());
+			pstmt.setInt(4, dto.getBbsId());
 
 			result = pstmt.executeUpdate();
 
@@ -144,7 +143,7 @@ public class HBbsDAO {
 			
 			sql = "SELECT * FROM (";
 			sql+= "SELECT ROWNUM AS RNUM, DATA.* FROM (";
-			sql+= "SELECT BBSID, BBSCATEGORY, USERID, BBSTITLE, NVL(UPDATEDDATE, CREATEDDATE) AS DATE, HITCOUNT ";
+			sql+= "SELECT BBSID, BBSCATEGORY, USERID, BBSTITLE, CREATEDDATE, UPDATEDDATE,  HITCOUNT ";
 			sql+= "FROM HBBS WHERE " + searchKey + " LIKE ? ORDER BY BBSID DESC) DATA) ";
 			sql+= "WHERE RNUM >= ? AND RNUM <= ?";		
 
@@ -154,7 +153,6 @@ public class HBbsDAO {
 			pstmt.setInt(3, end);
 
 			rs = pstmt.executeQuery();
-			System.out.println("asd");
 
 			while (rs.next()) {
 				HBbsDTO dto = new HBbsDTO();
@@ -163,13 +161,13 @@ public class HBbsDAO {
 				dto.setBbsCategory(rs.getString("BBSCATEGORY"));
 				dto.setUserId(rs.getString("USERID"));
 				dto.setBbsTitle(rs.getString("BBSTITLE"));
-				dto.setCreatedDate(rs.getString("DATE"));
+				dto.setCreatedDate(rs.getString("CREATEDDATE"));
+				dto.setUpdatedDate(rs.getString("UPDATEDDATE"));
 				dto.setHitCount(rs.getInt("HITCOUNT"));
 
 				list.add(dto);
 			}
-			System.out.println("asd");
-
+			
 			rs.close();
 			pstmt.close();
 
@@ -204,7 +202,7 @@ public class HBbsDAO {
 				dto.setBbsTitle(rs.getString(4));
 				dto.setBbsContent(rs.getString(5));
 				dto.setCreatedDate(rs.getString(6));
-				dto.setUpdetedDate(rs.getString(7));
+				dto.setUpdatedDate(rs.getString(7));
 				dto.setHitCount(rs.getInt(8));
 
 			} else {

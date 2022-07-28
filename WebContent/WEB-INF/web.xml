@@ -1,12 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
-  <display-name>study</display-name>
-  <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
-    <welcome-file>index.htm</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
-  </welcome-file-list>
+	<display-name>hong</display-name>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
+
+	<servlet>
+		<servlet-name>mainServlet</servlet-name>
+		<servlet-class>com.main.MainServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>mainServlet</servlet-name>
+		<url-pattern>/HBBS/main/*</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>bbsServlet</servlet-name>
+		<servlet-class>com.hbbs.HBbsServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>bbsServlet</servlet-name>
+		<url-pattern>/HBBS/bbs/*</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>userServlet</servlet-name>
+		<servlet-class>com.huser.HUserServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>userServlet</servlet-name>
+		<url-pattern>/HBBS/user/*</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>userInfoServlet</servlet-name>
+		<servlet-class>com.huserInfo.HUserInfoServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>userInfoServlet</servlet-name>
+		<url-pattern>/HBBS/userInfo/*</url-pattern>
+	</servlet-mapping>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </web-app>

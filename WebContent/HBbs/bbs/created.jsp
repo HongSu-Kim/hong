@@ -3,15 +3,6 @@
 <%
 	request.setCharacterEncoding("UTF-8");
 	String cp = request.getContextPath();
-	
-	PrintWriter script = response.getWriter();
-	
-	if (session.getAttribute("userId") == null){
-		script.print("<script>");
-		script.print("alert('로그인 필요!');");
-		script.print("location='login.jsp';");
-		script.print("</script>");
-	}
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -19,20 +10,20 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>글 작성</title>
 
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/created.css">
+<link rel="stylesheet" href="<%=cp %>/HBbs/css/style.css">
+<link rel="stylesheet" href="<%=cp %>/HBbs/css/created.css">
 
 </head>
 <body>
-	<jsp:include page="header.jsp"/>
+	<jsp:include page="../main/header.jsp"/>
 	<div id="section" align="center">
 		<div id="container" align="center">
 		
-			<jsp:include page="nav-left.jsp"/>
+			<jsp:include page="../main/nav-left.jsp"/>
 			
 			<div id="content" >
 				<h3 id="container-header">글 작성</h3>
-				<form action="created_ok.jsp" method="post" name="createdForm">
+				<form action="created_ok.do" method="post" name="createdForm">
 					<div class="box row" style="padding: 0px; width: 770px; height: 70px;'">
 						<div class="box row row-2" style="border: none;">
 							<div class="box label">
@@ -80,6 +71,6 @@
 			</div>
 		</div>
 	</div>
-	<jsp:include page="footer.jsp"/>
+	<jsp:include page="../main/footer.jsp"/>
 </body>
 </html>

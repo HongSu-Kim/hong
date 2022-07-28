@@ -144,9 +144,9 @@ public class HUserDAO {
 
 	}
 
-	public HUserDTO getHUser(HUserDTO dto) {
+	public HUserDTO getHUser(String userId) {
 
-//		HuserDTO dto = null;
+		HUserDTO dto = null;
 		PreparedStatement pstmt;
 		ResultSet rs;
 		String sql;
@@ -156,12 +156,14 @@ public class HUserDAO {
 			sql = "SELECT * FROM HUSER WHERE USERID = ?";
 
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, dto.getUserId());
+			pstmt.setString(1, userId);
 
 			rs = pstmt.executeQuery();
 
 			if (rs.next()) {
 
+				dto = new HUserDTO();
+				
 				dto.setUserId(rs.getString(1));
 				dto.setUserPassword(rs.getString(2));
 				dto.setUserName(rs.getString(3));
@@ -171,8 +173,6 @@ public class HUserDAO {
 				dto.setUserEmail(rs.getString(7));
 				dto.setJoinDate(rs.getString(8));
 
-			} else {
-				dto = null;
 			}
 			
 			rs.close();

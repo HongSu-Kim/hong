@@ -8,7 +8,7 @@ public class HBbsDTO {
 	private String bbsTitle;
 	private String bbsContent;
 	private String createdDate;
-	private String updetedDate;
+	private String updatedDate;
 	private int hitCount;
 
 	public int getBbsId() {
@@ -59,12 +59,12 @@ public class HBbsDTO {
 		this.createdDate = createdDate;
 	}
 
-	public String getUpdetedDate() {
-		return updetedDate;
+	public String getUpdatedDate() {
+		return updatedDate;
 	}
 
-	public void setUpdetedDate(String updetedDate) {
-		this.updetedDate = updetedDate;
+	public void setUpdatedDate(String updatedDate) {
+		this.updatedDate = updatedDate;
 	}
 
 	public int getHitCount() {
